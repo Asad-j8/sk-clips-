@@ -61,27 +61,15 @@ app.add_middleware(
 )
 
 # -------------------------------------------------------------
-# Basic Auth Protection
+# Optional Auth (Disabled for initial testing phase)
 # -------------------------------------------------------------
-security = HTTPBasic()
 ACCESS_PASSWORD = os.getenv("ACCESS_PASSWORD", "").strip()
 
 
-def verify_credentials(credentials: HTTPBasicCredentials = Depends(security)) -> str:
-    """Verify basic auth credentials against ACCESS_PASSWORD."""
-    if not ACCESS_PASSWORD:
-        # If no password configured, permit access
-        return credentials.username
+def verify_credentials() -> str:
+    """Authentication bypass for initial verification phase."""
+    return "anonymous"
 
-    # Compare password safely
-    is_correct = secrets.compare_digest(credentials.password, ACCESS_PASSWORD)
-    if not is_correct:
-        raise HTTPException(
-            status_code=status.HTTP_401_UNAUTHORIZED,
-            detail="Incorrect username or access password",
-            headers={"WWW-Authenticate": "Basic"},
-        )
-    return credentials.username
 
 
 WORK_DIR = Path(os.getenv("CLIPFORGE_WORK_DIR", "work")).resolve()
