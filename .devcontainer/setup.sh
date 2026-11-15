@@ -11,12 +11,7 @@ sudo apt-get install -y ffmpeg libsm6 libxext6 curl unzip
 echo "Installing Deno 2.9.8..."
 curl -fsSL https://deno.land/install.sh | DENO_INSTALL=/usr/local sh -s v2.9.8 || true
 
-# 3. CPU PyTorch first
-echo "Installing CPU PyTorch..."
-pip install --upgrade pip
-pip install torch torchaudio --index-url https://download.pytorch.org/whl/cpu
-
-# 4. Install locked dependencies
+# 3. Install lightweight locked dependencies
 if [ -f "requirements-cpu.lock" ]; then
     echo "Installing from requirements-cpu.lock..."
     pip install -r requirements-cpu.lock || pip install -r requirements.txt

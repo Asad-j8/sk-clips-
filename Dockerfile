@@ -14,10 +14,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     curl \
     && rm -rf /var/lib/apt/lists/*
 
-# Install CPU PyTorch first to keep image lightweight and avoid GPU bloat
-RUN pip install --no-cache-dir torch torchaudio --index-url https://download.pytorch.org/whl/cpu
-
-# Copy requirements and install
+# Copy requirements and install lightweight dependencies
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
