@@ -122,14 +122,9 @@ def root():
 
 @app.get("/api/health")
 def api_health():
-    """Health check endpoint."""
-    ffmpeg_available = bool(shutil.which("ffmpeg"))
-    return {
-        "status": "ok",
-        "ffmpeg": ffmpeg_available,
-        "time": time.time(),
-        "gemini_api_key_set": bool(os.getenv("GEMINI_API_KEY") or os.getenv("LLM_API_KEY")),
-    }
+    """Minimal health check endpoint (no sensitive details exposed)."""
+    return {"status": "ok"}
+
 
 
 @app.post("/api/upload")
