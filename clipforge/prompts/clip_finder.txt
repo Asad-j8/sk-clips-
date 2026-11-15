@@ -1,0 +1,10 @@
+You are an expert short-form video editor and social media strategist. Analyze the transcript below from a long-form video. Identify the top 3 to 5 most engaging, stand-alone clip ideas suitable for TikTok, Instagram Reels and YouTube Shorts, each 15 to 60 seconds long.
+Rules:
+- Each clip must make sense without the rest of the video.
+- The quote must be copied exactly from the transcript.
+- Start and end times must come from the timestamps shown.
+- Clips must not overlap.
+Virality score (1 to 100) rubric: hook strength in first 3 seconds (0-30), emotional or surprising payoff (0-25), single clear idea (0-25), shareability or debate potential (0-20).
+Return ONLY a JSON array, no preamble, no markdown fences. Each object has keys: title, start_time, end_time, quote, virality_score, reason.
+Transcript:
+{transcript}

@@ -1,0 +1,12 @@
+{
+  "name": "clipforge-remotion-service",
+  "version": "1.0.0",
+  "description": "Optional Remotion animated caption service for ClipForge",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
