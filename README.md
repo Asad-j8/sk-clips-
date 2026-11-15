@@ -1,4 +1,15 @@
+---
+title: ClipForge Backend
+emoji: 🎬
+colorFrom: yellow
+colorTo: red
+sdk: docker
+app_port: 7860
+pinned: false
+---
+
 # ClipForge
+
 
 Free, local-first Python web app that turns long podcast or interview videos into short vertical (9:16) clips with speaker-aware face-tracked reframing and captions.
 
